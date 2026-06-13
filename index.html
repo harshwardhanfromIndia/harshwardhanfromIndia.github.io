@@ -1,745 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Harshwardhan Kumar Paswan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Harshwardhan Paswan | Frontend Developer based in India">
+  <meta name="author" content="Harshwardhan Paswan">
+  <meta property="og:title" content="Harshwardhan Paswan | Frontend Developer">
+  <meta property="og:description" content="Portfolio | Harshwardhan Paswan - Frontend Developer">
+  <meta property="og:url" content="https://harshwardhanfromindia.com">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink: #1a1a18;
-      --ink2: #6b6b67;
-      --ink3: #a8a8a4;
-      --bg: #fafaf8;
-      --bg2: #f2f2ef;
-      --accent: #2d5a3d;
-      --accent-light: #e8f0ea;
-      --border: #e4e4e0;
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(250,250,248,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 5vw;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
-    }
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 17px;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--ink2);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* SECTIONS */
-    section { padding: 120px 5vw; }
-    section:first-of-type { padding-top: 180px; }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    /* HERO */
-    #about {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 120px;
-      padding-bottom: 80px;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(42px, 7vw, 88px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 28px;
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeUp 0.9s cubic-bezier(.22,1,.36,1) 0.1s forwards;
-    }
-    .hero-name em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .hero-sub {
-      max-width: 520px;
-      font-size: 17px;
-      color: var(--ink2);
-      line-height: 1.75;
-      margin-bottom: 44px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.9s cubic-bezier(.22,1,.36,1) 0.3s forwards;
-    }
-    .hero-tags {
-      display: flex; flex-wrap: wrap; gap: 10px;
-      opacity: 0;
-      animation: fadeUp 0.9s cubic-bezier(.22,1,.36,1) 0.5s forwards;
-    }
-    .tag {
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      color: var(--ink2);
-      background: transparent;
-    }
-    .hero-scroll {
-      margin-top: 80px;
-      display: flex; align-items: center; gap: 12px;
-      opacity: 0;
-      animation: fadeUp 0.9s cubic-bezier(.22,1,.36,1) 0.7s forwards;
-    }
-    .scroll-line {
-      width: 40px; height: 1px;
-      background: var(--ink3);
-    }
-    .scroll-text {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink3);
-    }
-
-    /* ABOUT TEXT */
-    #about-text {
-      border-bottom: 1px solid var(--border);
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .about-aside h2 {
-      font-family: var(--serif);
-      font-size: 32px;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-    .about-aside p {
-      font-size: 14px;
-      color: var(--ink2);
-      line-height: 1.8;
-    }
-    .about-body p {
-      font-size: 16px;
-      color: var(--ink2);
-      margin-bottom: 20px;
-      line-height: 1.85;
-    }
-    .about-body p:last-child { margin-bottom: 0; }
-    .about-body strong { color: var(--ink); font-weight: 500; }
-    .about-interests {
-      margin-top: 36px;
-      padding-top: 36px;
-      border-top: 1px solid var(--border);
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
-    .interest-pill {
-      font-size: 12px;
-      color: var(--ink2);
-      background: var(--bg2);
-      padding: 6px 14px;
-      border-radius: 100px;
-    }
-
-    /* SKILLS */
-    #skills { border-bottom: 1px solid var(--border); }
-    .skills-header {
-      display: flex; align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 56px;
-    }
-    .skills-header h2 {
-      font-family: var(--serif);
-      font-size: 38px;
-      color: var(--ink);
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .skill-card {
-      background: var(--bg);
-      padding: 36px 32px;
-      transition: background 0.2s;
-    }
-    .skill-card:hover { background: var(--accent-light); }
-    .skill-icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--accent-light);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-      font-size: 18px;
-    }
-    .skill-name {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .skill-desc {
-      font-size: 13px;
-      color: var(--ink2);
-      line-height: 1.6;
-    }
-    .skill-status {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    /* PROJECTS */
-    #projects { border-bottom: 1px solid var(--border); }
-    .projects-header {
-      margin-bottom: 56px;
-    }
-    .projects-header h2 {
-      font-family: var(--serif);
-      font-size: 38px;
-      color: var(--ink);
-    }
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .project-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: 40px;
-      padding: 40px;
-    }
-    .project-num {
-      font-family: var(--serif);
-      font-size: 13px;
-      color: var(--ink3);
-      font-style: italic;
-      margin-bottom: 14px;
-    }
-    .project-title {
-      font-family: var(--serif);
-      font-size: 26px;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-    .project-desc {
-      font-size: 15px;
-      color: var(--ink2);
-      line-height: 1.75;
-      max-width: 540px;
-      margin-bottom: 20px;
-    }
-    .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .project-tag {
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 4px 10px;
-      border-radius: 100px;
-      font-weight: 500;
-    }
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink);
-      text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 10px 18px;
-      border-radius: 100px;
-      white-space: nowrap;
-      transition: all 0.2s;
-      margin-top: 4px;
-    }
-    .project-link:hover {
-      background: var(--ink);
-      color: var(--bg);
-      border-color: var(--ink);
-    }
-    .project-link svg { width: 14px; height: 14px; }
-    .more-coming {
-      text-align: center;
-      padding: 48px;
-      background: var(--bg2);
-      border-radius: 16px;
-      border: 1px dashed var(--border);
-    }
-    .more-coming p {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 18px;
-      color: var(--ink3);
-    }
-
-    /* CONTACT */
-    #contact { }
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .contact-left h2 {
-      font-family: var(--serif);
-      font-size: clamp(32px, 5vw, 54px);
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-    .contact-left h2 em { font-style: italic; color: var(--accent); }
-    .contact-left p {
-      font-size: 15px;
-      color: var(--ink2);
-      line-height: 1.8;
-      margin-bottom: 36px;
-    }
-    .contact-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--bg);
-      background: var(--ink);
-      text-decoration: none;
-      padding: 14px 26px;
-      border-radius: 100px;
-      transition: background 0.2s;
-    }
-    .contact-email:hover { background: var(--accent); }
-    .contact-right {
-      background: var(--bg2);
-      border-radius: 20px;
-      padding: 44px;
-    }
-    .contact-right h3 {
-      font-family: var(--serif);
-      font-size: 20px;
-      color: var(--ink);
-      margin-bottom: 24px;
-    }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--ink);
-      transition: color 0.2s;
-    }
-    .contact-link:last-child { border-bottom: none; }
-    .contact-link:hover { color: var(--accent); }
-    .contact-link-label { font-size: 14px; font-weight: 500; }
-    .contact-link-url { font-size: 12px; color: var(--ink3); }
-    .arrow { font-size: 16px; transition: transform 0.2s; }
-    .contact-link:hover .arrow { transform: translate(3px, -3px); }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    footer p { font-size: 13px; color: var(--ink3); }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .project-inner { grid-template-columns: 1fr; gap: 20px; }
-      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-      .nav-links { display: none; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>Harshwardhan Paswan | Frontend Developer based in India</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="index.html" class="brand">Harshwardhan Paswan</a>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="craft.html">Craft</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
 
-  <nav>
-    <a href="#about" class="nav-logo">HKP</a>
-    <ul class="nav-links">
-      <li><a href="#about-text">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <main>
+    <section id="intro">
+      <h1>India based Frontend Developer<br>who codes and travels</h1>
 
-  <!-- HERO -->
-  <section id="about">
-    <div class="section-label">Portfolio</div>
-    <h1 class="hero-name">Harshwardhan<br><em>Kumar Paswan</em></h1>
-    <p class="hero-sub">A first-year Computer Science student building things from the ground up — one project, one language, one idea at a time.</p>
-    <div class="hero-tags">
-      <span class="tag">Aspiring Software Engineer</span>
-      <span class="tag">Python</span>
-      <span class="tag">HTML & CSS</span>
-      <span class="tag">India</span>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span class="scroll-text">Scroll to explore</span>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about-text">
-    <div class="about-grid">
-      <div class="about-aside reveal">
-        <h2>Who I am</h2>
-        <p>Student. Builder.<br>Curious person.</p>
-      </div>
-      <div class="about-body reveal">
-        <p>I'm a first-year CS engineering student with a long-term goal of working at <strong>Google or Microsoft</strong>. I know I'm at the very beginning — and I think that's actually a good place to start from, because everything I build now is a foundation.</p>
-        <p>I'm currently learning Python and HTML on FreeCodeCamp, setting up my developer workflow, and pushing my first projects to GitHub. I believe in building things that actually work over collecting certificates that don't.</p>
-        <p>Outside of code, I'm drawn to things that reward close attention — <strong>history, philosophy, furniture design from IKEA's early 90s catalogues</strong>, and art I find on cosmos.so. I think good design and good engineering have more in common than people admit.</p>
-        <div class="about-interests">
-          <span class="interest-pill">History & philosophy</span>
-          <span class="interest-pill">IKEA early 90s design</span>
-          <span class="interest-pill">Art exploration</span>
-          <span class="interest-pill">Design systems</span>
-          <span class="interest-pill">Open source</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="skills-header reveal">
-      <div>
-        <div class="section-label">What I know</div>
-        <h2>Skills</h2>
-      </div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-icon">🐍</div>
-        <div class="skill-name">Python</div>
-        <div class="skill-desc">Learning core concepts — functions, data types, control flow, and clean code structure via FreeCodeCamp.</div>
-        <span class="skill-status">Currently learning</span>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">🌐</div>
-        <div class="skill-name">HTML & CSS</div>
-        <div class="skill-desc">Building the structure and style of web pages. This portfolio is built entirely in HTML and CSS.</div>
-        <span class="skill-status">Currently learning</span>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">🔧</div>
-        <div class="skill-name">Git & GitHub</div>
-        <div class="skill-desc">Version control basics — committing, pushing, and managing repos from the terminal on macOS.</div>
-        <span class="skill-status">In use</span>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">💻</div>
-        <div class="skill-name">VS Code</div>
-        <div class="skill-desc">Primary code editor. Getting comfortable with the terminal, extensions, and the development workflow.</div>
-        <span class="skill-status">In use</span>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">🍎</div>
-        <div class="skill-name">macOS & Terminal</div>
-        <div class="skill-desc">Comfortable with the Mac terminal for navigating folders, running scripts, and using Git commands.</div>
-        <span class="skill-status">In use</span>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">📐</div>
-        <div class="skill-name">Next up</div>
-        <div class="skill-desc">JavaScript, data structures & algorithms, and a deeper dive into web development are on the roadmap.</div>
-        <span class="skill-status">Coming soon</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="projects-header reveal">
-      <div class="section-label">What I've built</div>
-      <h2>Projects</h2>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-inner">
-        <div>
-          <div class="project-num">01</div>
-          <div class="project-title">Bill Splitter</div>
-          <div class="project-desc">A Python command-line tool that calculates how much each person owes after splitting a restaurant bill, including tip. Built with functions, formatted output, and clean code structure — my first real Python project.</div>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">CLI</span>
-            <span class="project-tag">Functions</span>
-          </div>
-        </div>
-        <div>
-          <a href="https://github.com/harshwardhanfromIndia/bill-splitter" target="_blank" class="project-link">
-            View on GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-  <div class="project-inner">
-    <div>
-      <div class="project-num">02</div>
-      <div class="project-title">Caesar Cipher</div>
-      <div class="project-desc">
-        A Python implementation of the Caesar cipher — one of the
-        oldest encryption techniques. Encrypts and decrypts any text
-        using a shift value, preserving spaces and punctuation.
-        Demonstrates string manipulation, translation tables, and
-        input validation.
-      </div>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Cryptography</span>
-        <span class="project-tag">Strings</span>
-      </div>
-    </div>
-    <div>
-      <a href="https://github.com/harshwardhanfromIndia/caesar-cipher"
-         target="_blank" class="project-link">
-        View on GitHub
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2">
-          <path d="M7 17L17 7M7 7h10v10"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-    <div class="project-card reveal">
-  <div class="project-inner">
-    <div>
-      <div class="project-num">03</div>
-      <div class="project-title">Movie Ticket Price Calculator</div>
-      <div class="project-desc">
-        A Python CLI tool that calculates movie ticket prices based
-        on age eligibility, seat type, show time, membership discounts,
-        and weekend surcharges. Produces an itemised receipt breakdown.
-        Demonstrates conditionals, dictionaries, and clean function design.
-      </div>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Conditionals</span>
-        <span class="project-tag">Dictionaries</span>
-      </div>
-    </div>
-    <div>
-      <a href="https://github.com/harshwardhanfromIndia/movie-ticket-calculator"
-         target="_blank" class="project-link">
-        View on GitHub
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2">
-          <path d="M7 17L17 7M7 7h10v10"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-    <div class="project-card reveal">
-  <div class="project-inner">
-    <div>
-      <div class="project-num">04</div>
-      <div class="project-title">Number Base Converter</div>
-      <div class="project-desc">
-        A Python CLI tool that converts numbers between the four
-        number systems used in CS — Decimal, Binary, Octal, and
-        Hexadecimal. Features an interactive menu, two-way conversion,
-        and full input validation.
-      </div>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Number Systems</span>
-        <span class="project-tag">CS Fundamentals</span>
-      </div>
-    </div>
-    <div>
-      <a href="https://github.com/harshwardhanfromIndia/number-base-converter"
-         target="_blank" class="project-link">
-        View on GitHub
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2">
-          <path d="M7 17L17 7M7 7h10v10"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-    <div class="project-card reveal">
-  <div class="project-inner">
-    <div>
-      <div class="project-num">05</div>
-      <div class="project-title">CS Concepts Cheatsheet</div>
-      <div class="project-desc">
-        A dark-themed webpage explaining six core CS concepts —
-        RAM, Algorithms, Data Types, the Internet, Compilers, and
-        Boolean Logic — with visual diagrams and plain language
-        explanations. Built with pure HTML and CSS, no frameworks.
-      </div>
-      <div class="project-tags">
-        <span class="project-tag">HTML</span>
-        <span class="project-tag">CSS</span>
-        <span class="project-tag">CS Fundamentals</span>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <a href="https://harshwardhanfromIndia.github.io/cs-concepts-cheatsheet"
-         target="_blank" class="project-link">
-        Live Demo
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2">
-          <path d="M7 17L17 7M7 7h10v10"/>
-        </svg>
-      </a>
-      <a href="https://github.com/harshwardhanfromIndia/cs-concepts-cheatsheet"
-         target="_blank" class="project-link">
-        View on GitHub
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2">
-          <path d="M7 17L17 7M7 7h10v10"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-    <div class="more-coming reveal">
-      <p>More projects on the way — check back soon.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
-      <div class="contact-left reveal">
-        <div class="section-label">Get in touch</div>
-        <h2>Let's <em>connect</em></h2>
-        <p>I'm always happy to connect with other students, developers, or anyone curious about what I'm building. Feel free to reach out.</p>
-        <a href="mailto:harshwardhanpaswan147@gmail.com" class="contact-email">
-          harshwardhanpaswan147@gmail.com
+      <div class="social-icons">
+        <a href="mailto:harshwardhanfromindia@gmail.com" target="_blank" class="icons">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/harshwardhanfromindia/" target="_blank" class="icons">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect width="4" height="12" x="2" y="9" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+        <a href="https://github.com/harshwardhanfromIndia" target="_blank" class="icons"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+            <path d="M9 18c-4.51 2-5-2-7-2" />
+          </svg>
         </a>
       </div>
-      <div class="contact-right reveal">
-        <h3>Find me online</h3>
-        <a href="https://github.com/harshwardhanfromIndia" target="_blank" class="contact-link">
-          <div>
-            <div class="contact-link-label">GitHub</div>
-            <div class="contact-link-url">github.com/harshwardhanfromIndia</div>
+    </section>
+
+    <!-- <section id="work">
+      <h2>Selected Frontend Work</h2>
+
+      <div class="project-card">
+        <div class="project-text">
+          <p>Hello!</p>
+          <a href="#" target="_blank">Link</a>
+        </div>
+        <img src="" alt="" class="project-image">
+      </div>
+
+      <div class="project-card">
+        <div class="project-text">
+          <h3></h3>
+          <p></p>
+          <div class="project-links">
+            <a href="#" target="_blank"></a>
+            <a href="#" target="_blank"></a>
           </div>
-          <span class="arrow">↗</span>
+        </div>
+        <img src="" alt="" class="project-image">
+      </div>
+    </section> -->
+
+    <section id="value">
+      <h2>Where I bring value</h2>
+      <hr>
+      <div class="value-grid">
+        <div class="value-item">
+          <p>Strong eye for clean, minimal UI design</p>
+        </div>
+        <hr>
+        <div class="value-item">
+          <p>Writing readable, maintainable code</p>
+        </div>
+        <hr>
+        <div class="value-item">
+          <p>Quick to learn new tools and frameworks</p>
+        </div>
+        <hr>
+        <div class="value-item">
+          <p>Attention to detail in layout and spacing</p>
+        </div>
+        <hr>
+      </div>
+    </section>
+
+    <!-- <section id="prototypes">
+      <h2>I enjoy coding fun prototypes</h2>
+
+      <div class="prototype-grid">
+        <a href="#" class="prototype-card" target="_blank">
+          <div class="prototype-preview"></div>
+          <p></p>
         </a>
-        <a href="mailto:harshwardhanpaswan147@gmail.com" class="contact-link">
-          <div>
-            <div class="contact-link-label">Email</div>
-            <div class="contact-link-url">harshwardhanpaswan147@gmail.com</div>
-          </div>
-          <span class="arrow">↗</span>
+        <a href="#" class="prototype-card" target="_blank">
+          <div class="prototype-preview"></div>
+          <p></p>
+        </a>
+        <a href="#" class="prototype-card" target="_blank">
+          <div class="prototype-preview"></div>
+          <p></p>
         </a>
       </div>
-    </div>
-  </section>
+    </section> -->
+
+    <section id="freetime">
+      <p>In my free time, I am scaling a <a href="https://harshwardhanfromindia.github.io/webappetizers/"
+          id="side-project" target="_blank">side project</a> that is a free,
+        beginner-friendly
+        web development reference.</p>
+    </section>
+  </main>
 
   <footer>
-    <p>Harshwardhan Kumar Paswan · Built with HTML & CSS</p>
-    <p>2025</p>
+    <hr>
+    <div class="footer-inner">
+      <nav>
+        <p class="quote">Loving &nbsp;&nbsp;Learning &nbsp;&nbsp;Living</p>
+        <ul>
+          <li><a href="mailto:harshwardhanfromindia@gmail.com" target="_blank" class="icons">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </a>
+          </li>
+          <li><a href="https://www.linkedin.com/in/harshwardhanfromindia/" target="_blank" class="icons">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </li>
+          <li><a href="https://github.com/harshwardhanfromIndia" target="_blank" class="icons"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </footer>
-
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
-
 </body>
 </html>
